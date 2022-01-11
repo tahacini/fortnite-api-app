@@ -26,7 +26,7 @@ function NewItems() {
           <div key={items.id} className="item-box">
             <Link to={items.name.replace(/\s/g, "-")} state={items.id}>
               <div className="imgs">
-                <img src={items.images.smallIcon} />
+                <img src={items.images.smallIcon} alt="Items" />
               </div>
               <p>{items.name}</p>
             </Link>

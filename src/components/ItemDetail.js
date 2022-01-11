@@ -12,16 +12,17 @@ function ItemDetail() {
   const location = useLocation();
 
   useEffect(() => {
-    fetchItem();
-  }, [location.state]);
+    const fetchItem = async () => {
+      const data = await fetch(
+        `https://fortnite-api.com/v2/cosmetics/br/${location.state}`
+      );
+      const item = await data.json();
+      setItem(item.data);
+      console.log(`${detailid} is showing`);
+    };
 
-  const fetchItem = async () => {
-    const data = await fetch(
-      `https://fortnite-api.com/v2/cosmetics/br/${location.state}`
-    );
-    const item = await data.json();
-    setItem(item.data);
-  };
+    fetchItem();
+  }, [location.state]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="item-detail">

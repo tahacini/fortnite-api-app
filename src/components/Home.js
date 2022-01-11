@@ -19,7 +19,7 @@ function Home() {
         {news.map((item, index) => (
           <article key={index}>
             <div>
-              <img src={item.image} />
+              <img src={item.image} alt="News" />
             </div>
             <div className="text">
               <div>{item.title}</div>
